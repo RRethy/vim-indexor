@@ -17,7 +17,7 @@ Consider have a grocery list as follows:
   Dried Mango
 
 To number this list, it would require a lot of typing, or perhaps a fancy
-macro using <CTRL-A> which is not ideal. Instead, you can highlight the lines
+macro using |CTRL-A| which is not ideal. Instead, you can highlight the lines
 that need to be indexed, and |indexor| will add numbers (or letters) to the
 lines. This will result in the list above being changed into the following:
 
