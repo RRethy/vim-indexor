@@ -131,7 +131,7 @@ function! s:To_roman(n, hundreds, tens, ones, m)
   let curnum=a:n
 
   while curnum >= 1000
-    let numeral+=a:m
+    let numeral.=a:m
     let curnum-=1000
   endwhile
 
@@ -141,9 +141,9 @@ function! s:To_roman(n, hundreds, tens, ones, m)
   let t_count=curnum / 10
   let curnum=curnum % 10
 
-  let numeral=numeral . a:hundreds[h_count]
-  let numeral=numeral . a:tens[t_count]
-  let numeral=numeral . a:ones[curnum]
+  let numeral.=a:hundreds[h_count]
+  let numeral.=a:tens[t_count]
+  let numeral.=a:ones[curnum]
 
   return numeral
 endfunction
