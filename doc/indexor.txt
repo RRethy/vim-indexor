@@ -1,0 +1,49 @@
+*indexor.txt*  Plugin adding indices to lists
+
+Author:  Adam P. Regasz-Rethy (RRethy) <rethy.spud@gmail.com>
+License: Same terms as Vim itself (see |license|)
+
+INTRODUCTION                                    *indexor*
+
+This plugin is a tool for indices to lists. It will prepend a group of lines
+with numbers, and lower/upper case letters.
+
+Consider have a grocery list as follows:
+
+  Bananas
+  Oranges
+  Milk
+  Maple Syrup
+  Dried Mango
+
+To number this list, it would require a lot of typing, or perhaps a fancy
+macro using <CTRL-A> which is not ideal. Instead, you can highlight the lines
+that need to be indexed, and |indexor| will add numbers (or letters) to the
+lines. This will result in the list above being changed into the following:
+
+  1. Bananas
+  2. Oranges
+  3. Milk
+  4. Maple Syrup
+  5. Dried Mango
+
+MAPPINGS                                        *indexor-mappings*
+
+Add numbers as the indices with <Leader>n
+Add lowercase letters as the indices with <Leader>l
+Add uppercase letters as the indices with <Leader>L
+
+These will all add the appropriate index with a '. ' to the start of the text
+on the line (Not the start of the line).
+
+CUSTOMIZING                                     *indexor-customizing*
+
+You can define your own mappings for all three mentioned above as follows:
+
+vmap <Leader>n <Plug>IndexorAdd_numbers
+vmap <Leader>l <Plug>IndexorAdd_lowercase_letters
+vmap <Leader>L <Plug>IndexorAdd_uppercase_letters
+
+Using your mappings instead of the default.
+
+ vim:tw=78:ts=8:ft=help:norl:
