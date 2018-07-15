@@ -27,9 +27,19 @@ lines. This will result in the list above being changed into the following:
   4. Maple Syrup
   5. Dried Mango
 
+This also works with other list numbers such as roman numerals:
+
+  I. Bananas
+  II. Oranges
+  III. Milk
+  IV. Maple Syrup
+  V. Dried Mango
+
 MAPPINGS                                        *indexor-mappings*
 
 Add numbers as the indices with <Leader>n
+Add uppercase roman numerals as the indices with <Leader>R
+Add lowercase roman numerals as the indices with <Leader>r
 Add lowercase letters as the indices with <Leader>l
 Add uppercase letters as the indices with <Leader>L
 
@@ -46,6 +56,8 @@ CUSTOMIZING                                     *indexor-customizing*
 You can define your own mappings for all three mentioned above as follows:
 
 vmap <Leader>n <Plug>IndexorAdd_numbers
+vmap <Leader>R <Plug>IndexorAdd_roman_numerals_upper
+vmap <Leader>r <Plug>IndexorAdd_roman_numerals_lower
 vmap <Leader>l <Plug>IndexorAdd_lowercase_letters
 vmap <Leader>L <Plug>IndexorAdd_uppercase_letters
 

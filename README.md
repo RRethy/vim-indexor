@@ -22,7 +22,25 @@ We can add numbers to this list using `<Leader>n` which results in the following
   5. Dried Mango
 ```
 
-We can also use upper and lower case letters with `<Leader>L` and `<Leader>l` respectively which results in the following:
+There is support for upper and lower case romand numerals with `<Leader>r` and `<Leader>R` respectively which results in the following:
+
+```
+  i. Bananas
+  ii. Oranges
+  iii. Milk
+  iv. Maple Syrup
+  v. Dried Mango
+```
+
+```
+  I. Bananas
+  II. Oranges
+  III. Milk
+  IV. Maple Syrup
+  V. Dried Mango
+```
+
+There is also support for upper and lower case letters with `<Leader>L` and `<Leader>l` respectively which results in the following:
 
 ```
   A. Bananas
