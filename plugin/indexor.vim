@@ -101,34 +101,37 @@ function! s:Add_uppercase_letters() range
 endfunction
 
 function! s:Add_roman_numerals_upper() range
+  let hundreds = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
+  let tens = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
+  let ones = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
   let l:i=1
   let l:lnum=a:firstline
   while l:lnum <= a:lastline
-    call s:Prepend_index(l:lnum, s:To_upper_roman(l:i))
+    call s:Prepend_index(l:lnum, s:To_roman(l:i, hundreds, tens, ones, 'M'))
     let l:i+=1
     let l:lnum+=1
   endwhile
 endfunction
 
 function! s:Add_roman_numerals_lower() range
+  let hundreds = ["", "c", "cc", "ccc", "cd", "d", "dc", "dcc", "dccc", "cm"]
+  let tens = ["", "x", "xx", "xxx", "xl", "l", "lx", "lxx", "lxxx", "xc"]
+  let ones = ["", "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"]
   let l:i=1
   let l:lnum=a:firstline
   while l:lnum <= a:lastline
-    call s:Prepend_index(l:lnum, s:To_lower_roman(l:i))
+    call s:Prepend_index(l:lnum, s:To_roman(l:i, hundreds, tens, ones, 'm'))
     let l:i+=1
     let l:lnum+=1
   endwhile
 endfunction
 
-function! s:To_upper_roman(n)
-  let hundreds = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
-  let tens = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
-  let ones = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
+function! s:To_roman(n, hundreds, tens, ones, m)
   let numeral=""
   let curnum=a:n
 
   while curnum >= 1000
-    let numeral+='M'
+    let numeral+=a:m
     let curnum-=1000
   endwhile
 
@@ -138,34 +141,9 @@ function! s:To_upper_roman(n)
   let t_count=curnum / 10
   let curnum=curnum % 10
 
-  let numeral=hundreds[h_count] . numeral
-  let numeral=tens[t_count] . numeral
-  let numeral=ones[curnum] . numeral
-
-  return numeral
-endfunction
-
-function! s:To_lower_roman(n)
-  let hundreds = ["", "c", "cc", "ccc", "cd", "d", "dc", "dcc", "dccc", "cm"]
-  let tens = ["", "x", "xx", "xxx", "xl", "l", "lx", "lxx", "lxxx", "xc"]
-  let ones = ["", "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"]
-  let numeral=""
-  let curnum=a:n
-
-  while curnum >= 1000
-    let numeral+='m'
-    let curnum-=1000
-  endwhile
-
-  let h_count=curnum / 100
-  let curnum=curnum % 100
-
-  let t_count=curnum / 10
-  let curnum=curnum % 10
-
-  let numeral=hundreds[h_count] . numeral
-  let numeral=tens[t_count] . numeral
-  let numeral=ones[curnum] . numeral
+  let numeral=numeral . a:hundreds[h_count]
+  let numeral=numeral . a:tens[t_count]
+  let numeral=numeral . a:ones[curnum]
 
   return numeral
 endfunction
