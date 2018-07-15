@@ -85,5 +85,5 @@ function! s:Add_uppercase_letters() range
 endfunction
 
 function! s:Prepend_index(line, text)
-  exe a:line . "norm 0i" . a:text . ". "
+  exe a:line . "norm ^i" . a:text . ". "
 endfunction
