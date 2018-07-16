@@ -29,11 +29,11 @@ lines. This will result in the list above being changed into the following:
 
 This also works with other list numbers such as roman numerals:
 
-  I. Bananas
-  II. Oranges
-  III. Milk
-  IV. Maple Syrup
-  V. Dried Mango
+  i. Bananas
+ ii. Oranges
+iii. Milk
+ iv. Maple Syrup
+  v. Dried Mango
 
 MAPPINGS                                        *indexor-mappings*
 

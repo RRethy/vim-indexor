@@ -51,8 +51,9 @@ noremap <SID>Add_roman_numerals_lower :call <SID>Add_roman_numerals_lower()<CR>
 function! s:Add_numbers() range
   let l:i=1
   let l:lnum=a:firstline
+  let maxw=strlen(string(a:lastline - a:firstline + 1))
   while l:lnum <= a:lastline
-    call s:Prepend_index(l:lnum, l:i)
+    call s:Prepend_index(l:lnum, l:i, maxw)
     let l:i+=1
     let l:lnum+=1
   endwhile
@@ -72,8 +73,9 @@ function! s:Add_lowercase_letters() range
         \ 'z']
   let l:i=0
   let l:lnum=a:firstline
+  let maxw=(a:lastline - a:firstline + 1) / 26
   while l:lnum <= a:lastline
-    call s:Prepend_index(l:lnum, l:letters[l:i])
+    call s:Prepend_index(l:lnum, l:letters[l:i], maxw)
     let l:i+=1
     let l:lnum+=1
   endwhile
@@ -93,8 +95,9 @@ function! s:Add_uppercase_letters() range
         \ 'Z']
   let l:i=0
   let l:lnum=a:firstline
+  let maxw=(a:lastline - a:firstline + 1) / 26
   while l:lnum <= a:lastline
-    call s:Prepend_index(l:lnum, l:letters[l:i])
+    call s:Prepend_index(l:lnum, l:letters[l:i], maxw)
     let l:i+=1
     let l:lnum+=1
   endwhile
@@ -106,8 +109,21 @@ function! s:Add_roman_numerals_upper() range
   let ones = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
   let l:i=1
   let l:lnum=a:firstline
+
+  let l:maxw=0
   while l:lnum <= a:lastline
-    call s:Prepend_index(l:lnum, s:To_roman(l:i, hundreds, tens, ones, 'M'))
+    let cur=strlen(s:To_roman(l:i, hundreds, tens, ones, 'M'))
+    if cur>l:maxw
+      let l:maxw=cur
+    endif
+    let l:i+=1
+    let l:lnum+=1
+  endwhile
+
+  let l:i=1
+  let l:lnum=a:firstline
+  while l:lnum <= a:lastline
+    call s:Prepend_index(l:lnum, s:To_roman(l:i, hundreds, tens, ones, 'M'), l:maxw)
     let l:i+=1
     let l:lnum+=1
   endwhile
@@ -119,8 +135,21 @@ function! s:Add_roman_numerals_lower() range
   let ones = ["", "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"]
   let l:i=1
   let l:lnum=a:firstline
+
+  let l:maxw=0
   while l:lnum <= a:lastline
-    call s:Prepend_index(l:lnum, s:To_roman(l:i, hundreds, tens, ones, 'm'))
+    let cur=strlen(s:To_roman(l:i, hundreds, tens, ones, 'm'))
+    if cur>l:maxw
+      let l:maxw=cur
+    endif
+    let l:i+=1
+    let l:lnum+=1
+  endwhile
+
+  let l:i=1
+  let l:lnum=a:firstline
+  while l:lnum <= a:lastline
+    call s:Prepend_index(l:lnum, s:To_roman(l:i, hundreds, tens, ones, 'm'), l:maxw)
     let l:i+=1
     let l:lnum+=1
   endwhile
@@ -148,6 +177,6 @@ function! s:To_roman(n, hundreds, tens, ones, m)
   return numeral
 endfunction
 
-function! s:Prepend_index(line, text)
-  exe a:line . "norm ^i" . a:text . ". "
+function! s:Prepend_index(line, text, maxwidth)
+  exe a:line . "norm 0i" . printf('%' . a:maxwidth . 's. ', a:text)
 endfunction
