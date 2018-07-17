@@ -48,11 +48,6 @@ Add uppercase letters as the indices with <Leader>L
 These will all add the appropriate index with a '. ' to the start of the text
 on the line (Not the start of the line).
 
-NOTES                                           *indexor-notes*
-
-For indexing with letters, it has a cap of 26 items. This will change in the
-future to start doubling up on letters.
-
 CUSTOMIZING                                     *indexor-customizing*
 
 You can define your own mappings for all three mentioned above as follows:

@@ -61,10 +61,6 @@ endfunction
 
 " Adds lowercase letters to the start of each line in the range (max of 26 lines currently)
 function! s:Add_lowercase_letters() range
-  if a:lastline - a:firstline + 1 > 26
-    echoerr "Unable to add letters to a list with more than 26 lines :("
-    return
-  endif
   let l:letters=['a', 'b', 'c', 'd', 'e',
         \ 'f', 'g', 'h', 'i', 'j',
         \ 'k', 'l', 'm', 'n', 'o',
@@ -75,7 +71,7 @@ function! s:Add_lowercase_letters() range
   let l:lnum=a:firstline
   let maxw=(a:lastline - a:firstline + 1) / 26
   while l:lnum <= a:lastline
-    call s:Prepend_index(l:lnum, l:letters[l:i], maxw)
+    call s:Prepend_index(l:lnum, repeat(l:letters[l:i%26], l:i / 26 + 1), maxw)
     let l:i+=1
     let l:lnum+=1
   endwhile
@@ -83,10 +79,6 @@ endfunction
 
 " Adds uppercase letters to the start of each line in the range (max of 26 lines currently)
 function! s:Add_uppercase_letters() range
-  if a:lastline - a:firstline + 1 > 26
-    echoerr "Unable to add letters to a list with more than 26 lines :("
-    return
-  endif
   let l:letters=['A', 'B', 'C', 'D', 'E',
         \ 'F', 'G', 'H', 'I', 'J',
         \ 'K', 'L', 'M', 'N', 'O',
@@ -97,7 +89,7 @@ function! s:Add_uppercase_letters() range
   let l:lnum=a:firstline
   let maxw=(a:lastline - a:firstline + 1) / 26
   while l:lnum <= a:lastline
-    call s:Prepend_index(l:lnum, l:letters[l:i], maxw)
+    call s:Prepend_index(l:lnum, repeat(l:letters[l:i%26], l:i / 26 + 1), maxw)
     let l:i+=1
     let l:lnum+=1
   endwhile
