@@ -22,7 +22,7 @@ Maple Syrup
 Dried Mango
 ```
 
-We can add numbers to this list using `<Leader>n` which results in the following:
+We can add numbers to this list by entering visual mode and using `<Leader>n` which results in the following:
 
 ```
  1. Bananas
