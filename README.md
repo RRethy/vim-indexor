@@ -22,7 +22,7 @@ Maple Syrup
 Dried Mango
 ```
 
-We can add numbers to this list by entering visual mode and using `<Leader>n` which results in the following:
+We can add numbers to this list by highlighting these lines in visual mode and using `:AddNumberedIndexes` which results in the following:
 
 ```
  1. Bananas
@@ -42,7 +42,7 @@ We can add numbers to this list by entering visual mode and using `<Leader>n` wh
 15. Dried Mango
 ```
 
-There is support for upper and lower case romand numerals with `<Leader>r` and `<Leader>R` respectively which results in the following:
+There is support for upper and lower case romand numerals with `:AddLowercaseNumeralIndexes` and `:AddUppercaseNumeralIndexes` respectively which results in the following:
 
 ```
    i. Bananas
@@ -82,7 +82,7 @@ XIII. Milk
   XV. Dried Mango
 ```
 
-There is also support for upper and lower case letters with `<Leader>L` and `<Leader>l` respectively which results in the following:
+There is also support for upper and lower case letters with `:AddLowercaseLetterIndexes` and `:AddUppercaseLetterIndexes` respectively which results in the following:
 
 ```
 a. Bananas
@@ -121,6 +121,16 @@ M. Milk
 N. Maple Syrup
 O. Dried Mango
 ```
+
+# Commands
+
+|Command                     | List                                                |
+|----------------------------|------------------------------------------------------
+| `AddNumberedIndexes`         | Add **Numbers** as indexes to the start of the line |
+| `AddLowercaseLetterIndexes`  | Add **Lowercase letters** as indexes to the start of the line |
+| `AddUppercaseLetterIndexes`  | Add **Uppercase letters** as indexes to the start of the line |
+| `AddLowercaseNumeralIndexes` | Add **Lowercase Roman Numerals** as indexes to the start of the line |
+| `AddUppercaseNumeralIndexes` | Add **Uppercase Roman Numerals** as indexes to the start of the line |
 
 ## Installation
 
