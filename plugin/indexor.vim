@@ -9,10 +9,10 @@ endif
 let g:loaded_indexor = 1
 
 let s:commands_dict = {'AddNumberedIndexes': 'add_numbers',
-      \ 'AddLowercaseLetterIndexes': 'add_lowercase_letters',
-      \ 'AddUppercaseLetterIndexes': 'add_uppercase_letters',
-      \ 'AddUppercaseNumeralIndexes': 'add_roman_numerals_upper',
-      \ 'AddLowercaseNumeralIndexes': 'add_roman_numerals_lower'
+      \ 'IndexorLowercaseLetters': 'add_lowercase_letters',
+      \ 'IndexorUppercaseLetters': 'add_uppercase_letters',
+      \ 'IndexorUppercaseNumerals': 'add_roman_numerals_upper',
+      \ 'IndexorLowercaseNumerals': 'add_roman_numerals_lower'
       \ }
 
 for key in keys(s:commands_dict)
