@@ -8,7 +8,7 @@ if exists("g:loaded_indexor")
 endif
 let g:loaded_indexor = 1
 
-let s:commands_dict = {'AddNumberedIndexes': 'add_numbers',
+let s:commands_dict = {'IndexorNumbers': 'add_numbers',
       \ 'IndexorLowercaseLetters': 'add_lowercase_letters',
       \ 'IndexorUppercaseLetters': 'add_uppercase_letters',
       \ 'IndexorUppercaseNumerals': 'add_roman_numerals_upper',
